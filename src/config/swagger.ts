@@ -1,5 +1,6 @@
-import swaggerJSDoc from 'swagger-jsdoc'
-import { SwaggerUiOptions } from 'swagger-ui-express'
+//? swagger es para hacer la documentación de nuestra API, este archivo es para hacer toda la configuración
+import swaggerJSDoc from 'swagger-jsdoc';
+import { SwaggerOptions } from 'swagger-ui-express';
 
 const options : swaggerJSDoc.Options = {
     swaggerDefinition: {
@@ -9,30 +10,25 @@ const options : swaggerJSDoc.Options = {
                 name: 'Products',
                 description: 'API operations related to products'
             }
-        ], 
+        ],
         info: {
             title: 'REST API Node.js / Express / TypeScript',
-            version: "1.0.0",
-            description: "API Docs for Products"
+            version: '1.0.0',
+            description: 'API Docs for Products'
         }
-    }, 
-    apis: ['./src/router.ts']
+    },
+    apis: ['./src/router.ts'] // direccion de donde va a leer para hacrr la documentacion
 }
 
 const swaggerSpec = swaggerJSDoc(options)
 
-const swaggerUiOptions : SwaggerUiOptions = {
+const swaggerUiOptions : SwaggerOptions = { // para cambiar los estilos de la interfaz de swagger
     customCss : `
-        .topbar-wrapper .link {
-            content: url('https://codigoconjuan.com/wp-content/themes/cursosjuan/img/logo.svg');
-            height: 80px;
-            width: auto;
-        }
         .swagger-ui .topbar {
-            background-color: #2b3b45;
+            background-color: #2b3b45
         }
     `,
-    customSiteTitle: 'Documentación REST API Express / TypeScript'
+    customSiteTitle: 'Documentacion REST API Express / TypeScript'
 }
 
 export default swaggerSpec

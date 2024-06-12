@@ -1,17 +1,19 @@
+// Es para dar como reglas al compilador, para pasar de TS a JS
 {
     "compilerOptions": {
-        "outDir": "./dist",
-        "rootDir": "./src",
-        "lib": ["esnext"],
-        "target": "ESNext",
+        "outDir": "./dist", // Ubicacion en donde se van a almacenar los archivos JS, o sea los compilados
+        "rootDir": "./src", // de donde va a topmar los archivos a compilar
+        "lib": ["ESNext"], // version de JS a la que queremos que se compílen los archivos
+        "target": "ESNext", // version que queremos compilar (no entiendo la dif)
         "moduleResolution": "NodeNext",
         "module": "NodeNext",
-        "strict": false,
-        "sourceMap": true,
-        "esModuleInterop": true,
-        "declaration": true,
-        "experimentalDecorators": true,
+        "strict": false, // en false nos va a perminir el uso de Any
+        "sourceMap": true, // crea archivos MAP, que contienen más informacion y esas cosas
+        "esModuleInterop": true, // para poder importar una libreria que esté escrita en common JS
+        "declaration": true, // genera archivos de definicion, o sea con tipos y todo eso
+        "experimentalDecorators": true, // este y el de abajo son para poder usar los modelos y que TS sepa que pedo con esos Models de sequelize
         "emitDecoratorMetadata": true
     },
-    "include": ["src/**/*.ts"],
+    "include": ["src/**/*.ts"], // los archivos que queremos incluir en la compilación 
+    "exclude": ["src/**/*.test.ts"] // los que queremos que no compile
 }
